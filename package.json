@@ -1,0 +1,69 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Job Portal Frontend",
+  "main": "index.js",
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "@chakra-ui/react": "^3.20.0",
+    "@craco/craco": "^7.1.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@hello-pangea/dnd": "^18.0.1",
+    "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^4.1.2",
+    "axios": "^1.8.1",
+    "chart.js": "^4.4.8",
+    "dayjs": "^1.11.13",
+    "firebase": "^11.3.1",
+    "formik": "^2.4.6",
+    "framer-motion": "^11.18.2",
+    "gsap": "^3.12.7",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.0",
+    "libphonenumber-js": "^1.11.20",
+    "nodemailer": "^6.10.1",
+    "react": "^19.0.0",
+    "react-chartjs-2": "^5.3.0",
+    "react-confetti": "^6.4.0",
+    "react-countup": "^6.5.3",
+    "react-datepicker": "^8.3.0",
+    "react-dom": "^19.0.0",
+    "react-easy-crop": "^5.4.1",
+    "react-hook-form": "^7.54.2",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0",
+    "react-loading-skeleton": "^3.5.0",
+    "react-modal": "^3.16.3",
+    "react-parallax": "^3.5.2",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^7.1.5",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.10.1",
+    "react-slick": "^0.30.3",
+    "react-toastify": "^11.0.5",
+    "react-tooltip": "^5.28.1",
+    "recharts": "^2.15.1",
+    "slick-carousel": "^1.8.1",
+    "uuid": "^11.1.0",
+    "yup": "^1.6.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
