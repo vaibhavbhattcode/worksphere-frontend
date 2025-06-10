@@ -8,7 +8,8 @@ const VideoIntroSection = ({
   handleVideoUpload,
   handleVideoRemove,
 }) => {
-  const backendUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const backendUrl =
+    process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
   const videoUrl =
     videoIntro && !videoIntro.startsWith("http")
       ? `${backendUrl}${videoIntro}`

@@ -15,9 +15,12 @@ export default function Login() {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/status", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/status`,
+          {
+            withCredentials: true,
+          }
+        );
         if (res.data.loggedIn && res.data.type === "user") {
           navigate("/");
         } else if (res.data.loggedIn && res.data.type === "company") {
@@ -46,7 +49,7 @@ export default function Login() {
 
   const handleGoogleLogin = () => {
     setLoading(true);
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = `${process.env.REACT_APP_BACKEND_URL}/api/auth/google`;
   };
 
   const handleSubmit = async (e) => {
@@ -54,7 +57,7 @@ export default function Login() {
     setError("");
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/auth/login", formData, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, formData, {
         withCredentials: true,
       });
       navigate("/");

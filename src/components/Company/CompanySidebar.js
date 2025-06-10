@@ -36,7 +36,7 @@ const CompanySidebar = () => {
     const checkSession = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/company/auth/status",
+          `${process.env.REACT_APP_BACKEND_URL}/api/company/auth/status`,
           { withCredentials: true }
         );
         if (!res.data.loggedIn || res.data.type !== "company") {

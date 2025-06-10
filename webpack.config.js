@@ -27,9 +27,7 @@ module.exports = {
         test: /\.js$/,
         enforce: "pre",
         use: ["source-map-loader"],
-        exclude: [
-          /node_modules[\\/]react-datepicker[\\/]/, // Exclude react-datepicker from source-map-loader
-        ],
+        exclude: /node_modules/, // Exclude all node_modules for cleaner build
       },
     ],
   },

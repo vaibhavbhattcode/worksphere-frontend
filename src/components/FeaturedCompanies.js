@@ -13,7 +13,7 @@ export default function FeaturedCompanies() {
     const fetchOldestCompanies = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/company-profiles/oldest"
+          `${process.env.REACT_APP_BACKEND_URL}/api/company-profiles/oldest`
         );
         console.log("Fetched Companies:", response.data);
         setCompanies(response.data);

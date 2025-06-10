@@ -38,7 +38,7 @@ export default function Header() {
     const fetchSession = async () => {
       try {
         const userRes = await axios.get(
-          "http://localhost:5000/api/auth/status",
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/status`,
           { withCredentials: true }
         );
         if (userRes.data.loggedIn) {

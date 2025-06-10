@@ -76,7 +76,7 @@ const CompanyRegister = () => {
   ) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/company/auth/register",
+        `${process.env.REACT_APP_BACKEND_URL}/api/company/auth/register`,
         values,
         {
           withCredentials: true,

@@ -100,7 +100,7 @@ const JobDetailsPage = () => {
       const fetchJobDetails = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5000/api/jobs/${jobId}`,
+            `${process.env.REACT_APP_BACKEND_URL}/api/jobs/${jobId}`,
             { withCredentials: true }
           );
           setJob(response.data);

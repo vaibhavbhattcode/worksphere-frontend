@@ -13,7 +13,7 @@ export default function JobMatchTeaser() {
     const fetchJobMatch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/job-match",
+          `${process.env.REACT_APP_BACKEND_URL}/api/job-match`,
           {
             withCredentials: true,
           }

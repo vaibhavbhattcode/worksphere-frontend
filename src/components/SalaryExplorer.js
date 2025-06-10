@@ -64,7 +64,7 @@ export default function SalaryExplorer() {
   const fetchSalaryData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/salaries", {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/salaries`, {
         params: { jobTitle, location },
       });
       const { chartData, insights } = response.data;

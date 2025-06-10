@@ -11,8 +11,8 @@ const ProtectedRoute = ({ children, type = "user" }) => {
       try {
         const url =
           type === "user"
-            ? "http://localhost:5000/api/auth/status"
-            : "http://localhost:5000/api/company/auth/status";
+            ? `${process.env.REACT_APP_BACKEND_URL}/api/auth/status`
+            : `${process.env.REACT_APP_BACKEND_URL}/api/company/auth/status`;
         const response = await axios.get(url, { withCredentials: true });
         if (response.data.loggedIn && response.data.type === type) {
           setAuthStatus("authenticated");

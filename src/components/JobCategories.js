@@ -34,7 +34,7 @@ export default function JobCategories() {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/jobs/categories"
+          `${process.env.REACT_APP_BACKEND_URL}/api/jobs/categories`
         );
         const fetchedCategories = response.data.map((cat, index) => ({
           icon: iconMap[cat.industry] || iconMap["Others"],

@@ -13,7 +13,7 @@ export default function CommunityHub() {
     const fetchEvents = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/community/events"
+          `${process.env.REACT_APP_BACKEND_URL}/api/community/events`
         );
         setEvents(response.data);
       } catch (error) {

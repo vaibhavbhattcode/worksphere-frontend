@@ -216,7 +216,7 @@ const PostedJobsPage = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/jobs/posted", {
+        const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/jobs/posted`, {
           withCredentials: true,
         });
         const sorted = res.data.sort(
@@ -275,7 +275,7 @@ const PostedJobsPage = () => {
     }
     if (window.confirm("Are you sure you want to delete this job?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/jobs/${id}`, {
+        await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/jobs/${id}`, {
           withCredentials: true,
         });
         const remaining = jobs.filter((j) => j._id !== id);

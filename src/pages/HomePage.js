@@ -22,7 +22,7 @@ export default function HomePage() {
     const fetchSession = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/auth/status",
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/status`,
           {
             withCredentials: true,
           }

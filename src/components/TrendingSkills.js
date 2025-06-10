@@ -13,7 +13,7 @@ export default function TrendingSkills() {
     const fetchSkills = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/skills/trending"
+          `${process.env.REACT_APP_BACKEND_URL}/api/skills/trending`
         );
         setSkills(
           response.data.map((skill, i) => ({

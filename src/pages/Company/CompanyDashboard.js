@@ -75,7 +75,7 @@ const CompanyDashboard = () => {
     const checkSession = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/company/auth/status",
+          `${process.env.REACT_APP_BACKEND_URL}/api/company/auth/status`,
           { withCredentials: true }
         );
         if (!res.data.loggedIn || res.data.type !== "company") {
@@ -86,7 +86,7 @@ const CompanyDashboard = () => {
         const fetchDashboardData = async () => {
           try {
             const response = await axios.get(
-              `http://localhost:5000/api/company/dashboard/overview?interval=${interval}`,
+              `${process.env.REACT_APP_BACKEND_URL}/api/company/dashboard/overview?interval=${interval}`,
               { withCredentials: true }
             );
             setDashboardData(response.data || mockData);

@@ -320,7 +320,7 @@ const JobPostingPage = () => {
       if (!data.applicationDeadline) {
         data.applicationDeadline = null;
       }
-      await axios.post("http://localhost:5000/api/jobs", data, {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/jobs`, data, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });

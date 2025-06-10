@@ -36,7 +36,7 @@ export default function Register() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/register`,
         formData,
         { withCredentials: true }
       );
@@ -51,7 +51,7 @@ export default function Register() {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = `${process.env.REACT_APP_BACKEND_URL}/api/auth/google`;
   };
 
   return (

@@ -14,7 +14,7 @@ export default function SuccessStories() {
     const fetchStories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/success-stories"
+          `${process.env.REACT_APP_BACKEND_URL}/api/success-stories`
         );
         setStories(response.data);
       } catch (error) {

@@ -337,7 +337,7 @@ const EditJobPage = () => {
     const fetchJob = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/jobs/${jobId}`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/jobs/${jobId}`,
           {
             withCredentials: true,
           }
@@ -384,10 +384,14 @@ const EditJobPage = () => {
     try {
       data.remoteOption = data.remoteOption === "true";
       if (!data.applicationDeadline) data.applicationDeadline = null;
-      await axios.put(`http://localhost:5000/api/jobs/${jobId}`, data, {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
-      });
+      await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/jobs/${jobId}`,
+        data,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
       toast.success("Job updated successfully!");
       reset();
       setTimeout(() => {

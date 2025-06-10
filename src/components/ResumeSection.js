@@ -20,7 +20,7 @@ const ResumeSection = ({
     resumeName || (profileResume ? profileResume.split("/").pop() : "");
 
   // Adjust backendUrl to point to the correct static file server
-  const backendUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   // Construct the full resume URL if not absolute
   const resumeUrl =
