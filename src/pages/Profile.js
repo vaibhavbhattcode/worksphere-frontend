@@ -19,7 +19,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const API_BASE_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/api";
 
 // Animation Variants
 const messageVariants = {
@@ -109,9 +109,12 @@ const ProfilePage = () => {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const res = await axios.get(`${API_BASE_URL}/auth/status`, {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/auth/status`,
+          {
+            withCredentials: true,
+          }
+        );
         if (res.data.loggedIn && res.data.type !== "user") {
           setError("Please log in as a user to access this page.");
           setTimeout(() => navigate("/company/logout"), 2000);
@@ -123,9 +126,12 @@ const ProfilePage = () => {
 
       const fetchProfile = async () => {
         try {
-          const response = await axios.get(`${API_BASE_URL}/user/profile`, {
-            withCredentials: true,
-          });
+          const response = await axios.get(
+            `${process.env.REACT_APP_BACKEND_URL}/user/profile`,
+            {
+              withCredentials: true,
+            }
+          );
           const data = {
             ...response.data,
             education: response.data.education || [],
@@ -260,7 +266,7 @@ const ProfilePage = () => {
     setGeneratingAbout(true);
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/ai/generate-about`,
+        `${process.env.REACT_APP_BACKEND_URL}/ai/generate-about`,
         {
           jobTitle: editData.title,
           skills: editData.skills,
@@ -331,7 +337,7 @@ const ProfilePage = () => {
 
     try {
       const response = await axios.put(
-        `${API_BASE_URL}/user/profile`,
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile`,
         payload,
         {
           withCredentials: true,
@@ -418,7 +424,7 @@ const ProfilePage = () => {
     try {
       setUploadingPhoto(true);
       const response = await axios.post(
-        `${API_BASE_URL}/user/profile/upload-photo`,
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile/upload-photo`,
         formData,
         {
           withCredentials: true,
@@ -447,7 +453,7 @@ const ProfilePage = () => {
     try {
       setUploadingResume(true);
       const response = await axios.post(
-        `${API_BASE_URL}/user/profile/upload-resume`,
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile/upload-resume`,
         formData,
         {
           withCredentials: true,
@@ -470,9 +476,12 @@ const ProfilePage = () => {
   };
   const handleResumeRemove = async () => {
     try {
-      await axios.delete(`${API_BASE_URL}/user/profile/resume`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile/resume`,
+        {
+          withCredentials: true,
+        }
+      );
       const updatedData = { ...profileData, resume: null, resumeName: null };
       setProfileData(updatedData);
       setSuccessMessage("Resume removed successfully.");
@@ -488,7 +497,7 @@ const ProfilePage = () => {
     formData.append("title", title);
     try {
       const response = await axios.post(
-        `${API_BASE_URL}/user/profile/upload-certificate`,
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile/upload-certificate`,
         formData,
         {
           withCredentials: true,
@@ -512,7 +521,7 @@ const ProfilePage = () => {
   const handleCertificateDelete = async (certificateId) => {
     try {
       await axios.delete(
-        `${API_BASE_URL}/user/profile/certificate/${certificateId}`,
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile/certificate/${certificateId}`,
         {
           withCredentials: true,
         }
@@ -539,7 +548,7 @@ const ProfilePage = () => {
     try {
       setUploadingVideo(true);
       const response = await axios.post(
-        `${API_BASE_URL}/user/profile/upload-video-intro`,
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile/upload-video-intro`,
         formData,
         {
           withCredentials: true,
@@ -561,9 +570,12 @@ const ProfilePage = () => {
   };
   const handleVideoRemove = async () => {
     try {
-      await axios.delete(`${API_BASE_URL}/user/profile/video-intro`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `${process.env.REACT_APP_BACKEND_URL}/user/profile/video-intro`,
+        {
+          withCredentials: true,
+        }
+      );
       const updatedData = { ...profileData, videoIntroduction: "" };
       setProfileData(updatedData);
       setSuccessMessage("Video removed successfully.");
@@ -879,7 +891,6 @@ const ProfilePage = () => {
                     handleResumeRemove={handleResumeRemove}
                   />
                 </motion.div>
-              
 
                 <motion.div variants={sectionVariants}>
                   <VideoIntroSection
