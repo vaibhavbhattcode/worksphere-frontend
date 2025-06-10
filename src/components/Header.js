@@ -61,7 +61,7 @@ export default function Header() {
   useEffect(() => {
     if (userType === "user" && user && !user.name) {
       axios
-        .get("http://localhost:5000/api/user/profile", {
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/user/profile`, {
           withCredentials: true,
         })
         .then((res) => {
@@ -75,9 +75,12 @@ export default function Header() {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/notifications", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/notifications`,
+          {
+            withCredentials: true,
+          }
+        );
         setNotifications(res.data || []);
       } catch (err) {
         console.error("Error fetching notifications:", err);
@@ -104,7 +107,7 @@ export default function Header() {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/auth/logout",
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/logout`,
         {},
         { withCredentials: true }
       );
@@ -217,7 +220,7 @@ export default function Header() {
                               try {
                                 if (!notification.isRead) {
                                   await axios.patch(
-                                    `http://localhost:5000/api/notifications/${notification._id}/read`,
+                                    `${process.env.REACT_APP_BACKEND_URL}/api/notifications/${notification._id}/read`,
                                     {},
                                     { withCredentials: true }
                                   );
